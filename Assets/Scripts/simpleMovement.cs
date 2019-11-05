@@ -45,7 +45,7 @@ public class simpleMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.CompareTag("Ground")) {
             isJumping = false;
-            SoundManager.instance.PlayRandomClip(audioClips);
+            SoundManager.instance.PlayRandomClip(audioClips, this.transform.position);
         }
     }
 }
