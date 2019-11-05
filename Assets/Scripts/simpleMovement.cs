@@ -18,9 +18,7 @@ public class simpleMovement : MonoBehaviour
 
     }
 
-    void Update() {}
-
-    void FixedUpdate()
+    void Update()
     {
         float move = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(move * speed, rb.velocity.y);
@@ -45,7 +43,7 @@ public class simpleMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.CompareTag("Ground")) {
             isJumping = false;
-            SoundManager.instance.PlayRandomClip(audioClips);
+            SoundManager.instance.PlayRandomClip(audioClips, this.transform.position);
         }
     }
 }

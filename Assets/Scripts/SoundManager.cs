@@ -7,6 +7,9 @@ public class SoundManager : MonoBehaviour
     public AudioSource efxSource;
     public AudioSource musicSource;
     public static SoundManager instance = null;
+    public float minX = -10.0F;
+    public float maxX = 10.0F;
+
 
     void Awake ()
     {
@@ -20,17 +23,21 @@ public class SoundManager : MonoBehaviour
         
     }
 
-    public void PlayClip(AudioClip clip, float panStereo = 0.0F)
+    public void PlayClip(AudioClip clip, Vector3 position)
     {
-        efxSource.panStereo = panStereo;
+        efxSource.panStereo = ConvertPosToPan(position);
         efxSource.clip = clip;
         efxSource.Play ();
     }
 
-    public void PlayRandomClip(AudioClip[] clips, float panStereo = 0.0F)
+    public float ConvertPosToPan(Vector3 pos) {
+        return pos.x/10;
+    }
+
+    public void PlayRandomClip(AudioClip[] clips, Vector3 position)
     {
         int randomIndex = Random.Range(0, clips.Length);
-        this.PlayClip(clips[randomIndex], panStereo);
+        this.PlayClip(clips[randomIndex], position);
     }
 
 
