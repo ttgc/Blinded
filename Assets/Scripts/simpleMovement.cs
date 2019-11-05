@@ -18,9 +18,7 @@ public class simpleMovement : MonoBehaviour
 
     }
 
-    void Update() {}
-
-    void FixedUpdate()
+    void Update()
     {
         float move = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(move * speed, rb.velocity.y);
