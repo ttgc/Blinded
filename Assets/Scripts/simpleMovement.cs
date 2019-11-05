@@ -9,6 +9,7 @@ public class simpleMovement : MonoBehaviour
     public bool isJumping = false;
 
     public AudioClip[] audioClips;
+    public AudioClip deathClip;
     private Rigidbody2D rb;
     public float speed = 1.0f;
 
@@ -39,11 +40,24 @@ public class simpleMovement : MonoBehaviour
         }
     }
 
+    void die() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.CompareTag("Ground")) {
             isJumping = false;
             SoundManager.instance.PlayRandomClip(audioClips, this.transform.position);
+        }
+
+
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Pikes")) {
+            SoundManager.instance.PlayClip(deathClip, this.transform.position);
+            die();
         }
     }
 }
