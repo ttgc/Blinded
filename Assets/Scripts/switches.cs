@@ -5,6 +5,7 @@ using UnityEngine;
 public class switches : MonoBehaviour
 {
     public door DoorToOpen;
+    public AudioClip actionClip;
 
     void Start()
     {}
@@ -13,7 +14,8 @@ public class switches : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            DoorToOpen.doorOpen = true;
+            DoorToOpen.openingDoor();
+            SoundManager.instance.PlayClip(actionClip, this.transform.position);
         }
         
     }
