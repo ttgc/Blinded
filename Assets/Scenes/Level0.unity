@@ -187,6 +187,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2140470800825629575, guid: 809a795436aaa3b48b8e2051863bc4ef,
+        type: 3}
+      propertyPath: disabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 809a795436aaa3b48b8e2051863bc4ef, type: 3}
 --- !u!1001 &303605483
@@ -325,6 +330,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8134639832743771560, guid: 638f7baeafff2544b9f5d3e689b0a06d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 638f7baeafff2544b9f5d3e689b0a06d, type: 3}
 --- !u!1001 &420540457
@@ -419,6 +429,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e96be7d4869f81418745129bcef4d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ambiant: {fileID: 8300000, guid: 3d81a83abdec69b4ea2fb025f65bb089, type: 3}
+  intro_1: {fileID: 8300000, guid: ce4c8a46e5219454fa34b7c9f45e6de2, type: 3}
+  randomSounds:
+  - {fileID: 8300000, guid: 97aa60d5013e07946a4aee8236e2f75f, type: 3}
+  - {fileID: 8300000, guid: 63c05f978577e7440b74ec3bfcb78b5a, type: 3}
+  - {fileID: 8300000, guid: 57888fd1233db2c409784d747fa8fbb2, type: 3}
+  - {fileID: 8300000, guid: a5586898bf4110543b387d624c6789a2, type: 3}
+  - {fileID: 8300000, guid: 3b555048e6766444c977a273e7cc8833, type: 3}
+  intro_2: {fileID: 8300000, guid: 3acc5c0315b30af42a74e7f5a0584e03, type: 3}
+  fall: {fileID: 0}
+  fallAgain: {fileID: 0}
+  congrats: {fileID: 0}
 --- !u!1001 &767682576
 PrefabInstance:
   m_ObjectHideFlags: 0

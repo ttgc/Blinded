@@ -13,6 +13,8 @@ public class simpleMovement : MonoBehaviour
     private Rigidbody2D rb;
     public float speed = 1.0f;
 
+    public bool disabled = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,26 +23,29 @@ public class simpleMovement : MonoBehaviour
 
     void Update()
     {
-        float move = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(move * speed, rb.velocity.y);
+        if (!disabled)
+        {
+            float move = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(move * speed, rb.velocity.y);
 
-        if ((Input.GetAxis("Horizontal") != 0) || !isJumping)
-        {
-            //ajout du son de marche
-        }
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (!isJumping)
+            if ((Input.GetAxis("Horizontal") != 0) || !isJumping)
             {
-                rb.AddForce(jumpForce * Vector3.up, ForceMode2D.Impulse);
-                //rb.velocity = new Vector2(rb.velocity.x, jumpForce); marche aussi
-                isJumping = true;
-                //ajout du son de saut
+                //ajout du son de marche
             }
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if (!isJumping)
+                {
+                    rb.AddForce(jumpForce * Vector3.up, ForceMode2D.Impulse);
+                    //rb.velocity = new Vector2(rb.velocity.x, jumpForce); marche aussi
+                    isJumping = true;
+                    //ajout du son de saut
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
     }
 

@@ -64,3 +64,6 @@ crashlytics-build.properties
 # vscode and vs config giles
 .vscode/
 .vs/
+
+# No git files
+nogit-*
