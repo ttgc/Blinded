@@ -9,6 +9,8 @@ public class tutoScript : MonoBehaviour
     private bool hasFinished = false;
     private bool hasFallen = false;
     private int stepIntro = 0;
+    private bool isFalling = false;
+    private bool isCongrats = false;
 
     public AudioClip ambiant;
     public AudioClip intro_1;
@@ -23,7 +25,8 @@ public class tutoScript : MonoBehaviour
     {
         player = GameObject.FindObjectOfType<simpleMovement>();
         SoundManager.instance.musicSource.loop = true;
-        SoundManager.instance.musicSource.PlayOneShot(ambiant);
+        SoundManager.instance.musicSource.clip = ambiant;
+        SoundManager.instance.musicSource.Play();
 
         if (!hasReload)
         {
@@ -32,7 +35,6 @@ public class tutoScript : MonoBehaviour
         }
         else
         {
-            //reload
             GameObject.FindObjectOfType<door>().openingDoor();
             player.disabled = false;
         }
@@ -41,7 +43,7 @@ public class tutoScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) hasReload = true;
+        if (Input.GetKeyDown(KeyCode.Escape) && !player.disabled) hasReload = true;
 
         if (stepIntro == 1 && !SoundManager.instance.efxSource.isPlaying)
         {
@@ -62,26 +64,36 @@ public class tutoScript : MonoBehaviour
         if (player.GetComponent<Transform>().position.y < -6 && !hasFallen)
         {
             player.disabled = true;
+            isFalling = true;
+            hasFallen = true;
             if (!hasReload)
             {
-                //learn retry
+                SoundManager.instance.PlayClip(fall, new Vector3(0, 0));
             }
             else
             {
-                //re learn retry
+                SoundManager.instance.PlayClip(fallAgain, new Vector3(0, 0));
             }
+        }
 
-            hasFallen = true;
+        if (isFalling && !SoundManager.instance.efxSource.isPlaying)
+        {
             player.disabled = false;
+            isFalling = false;
         }
 
         if (player.GetComponent<Transform>().position.x > 1 && hasReload && !hasFinished)
         {
             player.disabled = true;
-            //congratulations
-
+            isCongrats = true;
             hasFinished = true;
+            SoundManager.instance.PlayClip(congrats, new Vector3(0, 0));
+        }
+
+        if (isCongrats && !SoundManager.instance.efxSource.isPlaying)
+        {
             player.disabled = false;
+            isCongrats = false;
         }
     }
 }

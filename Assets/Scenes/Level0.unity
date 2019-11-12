@@ -438,9 +438,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a5586898bf4110543b387d624c6789a2, type: 3}
   - {fileID: 8300000, guid: 3b555048e6766444c977a273e7cc8833, type: 3}
   intro_2: {fileID: 8300000, guid: 3acc5c0315b30af42a74e7f5a0584e03, type: 3}
-  fall: {fileID: 0}
-  fallAgain: {fileID: 0}
-  congrats: {fileID: 0}
+  fall: {fileID: 8300000, guid: de3438ea7f9b103418c49c7e441da9a7, type: 3}
+  fallAgain: {fileID: 8300000, guid: 8e3ee6d5e4a8aa84e80c5dea834d999f, type: 3}
+  congrats: {fileID: 8300000, guid: 1b9e21b6fad6f974c8f31b9e824bc682, type: 3}
 --- !u!1001 &767682576
 PrefabInstance:
   m_ObjectHideFlags: 0
