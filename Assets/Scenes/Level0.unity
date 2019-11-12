@@ -187,11 +187,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2140470800825629575, guid: 809a795436aaa3b48b8e2051863bc4ef,
-        type: 3}
-      propertyPath: deathClip
-      value: 
-      objectReference: {fileID: 8300000, guid: dba68ab29ba43364ab6895d1da2311c5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 809a795436aaa3b48b8e2051863bc4ef, type: 3}
 --- !u!1001 &303605483
@@ -347,7 +342,7 @@ PrefabInstance:
     - target: {fileID: 5065916925353775349, guid: 8b4ace01c6e65264d97042009a978b97,
         type: 3}
       propertyPath: doorOpen
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5065916925353775337, guid: 8b4ace01c6e65264d97042009a978b97,
         type: 3}
@@ -406,6 +401,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b4ace01c6e65264d97042009a978b97, type: 3}
+--- !u!1 &623777025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2140470800825629629, guid: 809a795436aaa3b48b8e2051863bc4ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 98824211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &623777026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623777025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e96be7d4869f81418745129bcef4d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &767682576
 PrefabInstance:
   m_ObjectHideFlags: 0
