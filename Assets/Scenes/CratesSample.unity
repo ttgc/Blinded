@@ -234,7 +234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593056917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.36, y: -1.836, z: -9.453125}
+  m_LocalPosition: {x: 5.36, y: -1.836, z: 0}
   m_LocalScale: {x: 1, y: 0.31395, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -316,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746146897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.352, y: -1.565, z: -0.7722002}
+  m_LocalPosition: {x: -3.352, y: -1.565, z: 0}
   m_LocalScale: {x: 0.8658059, y: 0.86574, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -473,7 +473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034367126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.074, y: -1.179, z: -0.7722002}
+  m_LocalPosition: {x: 8.074, y: -1.179, z: 0}
   m_LocalScale: {x: 1.4862957, y: 1.5868545, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -645,17 +645,17 @@ PrefabInstance:
     - target: {fileID: 3981119401113068428, guid: 7c1c8e931e211d7409520e69e8f9e99c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3981119401113068428, guid: 7c1c8e931e211d7409520e69e8f9e99c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3981119401113068428, guid: 7c1c8e931e211d7409520e69e8f9e99c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3981119401113068428, guid: 7c1c8e931e211d7409520e69e8f9e99c,
         type: 3}
@@ -681,6 +681,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981119401113068429, guid: 7c1c8e931e211d7409520e69e8f9e99c,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981119401113068429, guid: 7c1c8e931e211d7409520e69e8f9e99c,
+        type: 3}
+      propertyPath: orthographic size
+      value: 7.31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c1c8e931e211d7409520e69e8f9e99c, type: 3}

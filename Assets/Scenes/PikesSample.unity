@@ -96,7 +96,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
-    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -422,6 +421,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3981119401113068429, guid: 7c1c8e931e211d7409520e69e8f9e99c,
+        type: 3}
+      propertyPath: orthographic size
+      value: 7.31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c1c8e931e211d7409520e69e8f9e99c, type: 3}
 --- !u!1001 &5065916924340238552
@@ -431,15 +435,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5065916925353775349, guid: 8b4ace01c6e65264d97042009a978b97,
-        type: 3}
-      propertyPath: doorOpen
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5065916925353775348, guid: 8b4ace01c6e65264d97042009a978b97,
         type: 3}
       propertyPath: m_Name
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065916925353775349, guid: 8b4ace01c6e65264d97042009a978b97,
+        type: 3}
+      propertyPath: doorOpen
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5065916925353775337, guid: 8b4ace01c6e65264d97042009a978b97,
         type: 3}
