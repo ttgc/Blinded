@@ -38,6 +38,10 @@ public class simpleMovement : MonoBehaviour
                 //ajout du son de saut
             }
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     void die() {
