@@ -10,15 +10,19 @@ public class simpleMovement : MonoBehaviour
 
     public AudioClip[] audioClips;
     public AudioClip deathClip;
+    public AudioClip jumpSound;
     private Rigidbody2D rb;
     public float speed = 1.0f;
+    AudioSource footSteps;
+    bool steps = false;
 
     public bool disabled = false;
 
+    // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        footSteps = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -28,20 +32,31 @@ public class simpleMovement : MonoBehaviour
             float move = Input.GetAxis("Horizontal");
             rb.velocity = new Vector2(move * speed, rb.velocity.y);
 
-            if ((Input.GetAxis("Horizontal") != 0) || !isJumping)
+            if ((rb.velocity.x != 0) && !isJumping)
+                steps = true;
+            else
+                steps = false;
+
+            if (steps)
             {
-                //ajout du son de marche
+                if (!footSteps.isPlaying)
+                    footSteps.Play();
             }
+            else
+                footSteps.Stop();
+
+
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 if (!isJumping)
                 {
                     rb.AddForce(jumpForce * Vector3.up, ForceMode2D.Impulse);
-                    //rb.velocity = new Vector2(rb.velocity.x, jumpForce); marche aussi
-                    isJumping = true;
-                    //ajout du son de saut
+                    SoundManager.instance.PlayClip(jumpSound, this.transform.position);
+
                 }
+
             }
+
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -55,7 +70,6 @@ public class simpleMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.CompareTag("Ground")) {
-            isJumping = false;
             SoundManager.instance.PlayRandomClip(audioClips, this.transform.position);
         }
 
@@ -72,4 +86,21 @@ public class simpleMovement : MonoBehaviour
             die();
         }
     }
+
+   
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        var normal = collision.contacts[0].normal;
+        if (normal.y > 0)
+        { //if the bottom side hit something 
+            isJumping = false;
+        }
+        
+    }
+    private void OnCollisionExit2D()
+    {
+        isJumping = true;
+    }
+
+
 }

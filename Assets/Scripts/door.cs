@@ -9,6 +9,12 @@ public class door : MonoBehaviour
     public bool doorOpen = true;
     public AudioClip openClip;
 
+    private void Start()
+    {
+        LevelToLoad = SceneManager.GetActiveScene().buildIndex;
+
+    }
+
     public void openingDoor() {
         if (!doorOpen) {
             SoundManager.instance.PlayClip(openClip, this.transform.position);

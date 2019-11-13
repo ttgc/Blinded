@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Door
   - Pikes
+  - Wall
+  - Box
   layers:
   - Default
   - TransparentFX
