@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,7 +30,7 @@ public class tutoScript : MonoBehaviour
 
         if (!hasReload)
         {
-            //SoundManager.instance.PlayClip(intro_1, new Vector3(0, 0));
+            SoundManager.instance.PlayClip(intro_1, new Vector3(0, 0));
             stepIntro++;
         }
         else
@@ -52,7 +52,7 @@ public class tutoScript : MonoBehaviour
         }
         if (stepIntro == 2 && !SoundManager.instance.efxSource.isPlaying)
         {
-            //SoundManager.instance.PlayClip(intro_2, new Vector3(0, 0));
+            SoundManager.instance.PlayClip(intro_2, new Vector3(0, 0));
             stepIntro++;
         }
         if (stepIntro == 3 && !SoundManager.instance.efxSource.isPlaying)
