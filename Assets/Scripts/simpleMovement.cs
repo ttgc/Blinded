@@ -22,7 +22,7 @@ public class simpleMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        footSteps = GetComponent<AudioSource>();
+        footSteps = SoundManager.instance.efxSource1;
     }
 
     void Update()
