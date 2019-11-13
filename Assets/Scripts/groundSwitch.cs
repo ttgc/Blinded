@@ -5,25 +5,26 @@ using UnityEngine;
 public class groundSwitch : MonoBehaviour
 {
     public door DoorToOpen;
-    public AudioClip actionClip;
+    public AudioClip on;
+    public AudioClip off;
 
-    void Start()
-    { }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        SoundManager.instance.PlayClip(on, this.transform.position);
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Box"))
-        {
+       // if (collision.gameObject.CompareTag("Box"))
+       // {
             DoorToOpen.openingDoor();
-            //SoundManager.instance.PlayClip(actionClip, this.transform.position);
-        }
+       // }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Box"))
-        {
+       // if (collision.gameObject.CompareTag("Box"))
+       // {
             DoorToOpen.closingDoor();
-            //SoundManager.instance.PlayClip(actionClip, this.transform.position);
-        }
+            SoundManager.instance.PlayClip(off, this.transform.position);
+       // }
     }
 }
