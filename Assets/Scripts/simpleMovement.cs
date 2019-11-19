@@ -16,41 +16,51 @@ public class simpleMovement : MonoBehaviour
     AudioSource footSteps;
     bool steps = false;
 
+    public bool disabled = false;
+
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        footSteps = GetComponent<AudioSource>();
+        footSteps = SoundManager.instance.efxSource1;
     }
 
     void Update()
     {
-        float move = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(move * speed, rb.velocity.y);
-
-        if ((rb.velocity.x != 0)&&!isJumping)
-            steps = true;
-        else
-            steps = false;
-
-        if (steps)
+        if (!disabled)
         {
-            if (!footSteps.isPlaying)
-                footSteps.Play();
-        }
-        else
-            footSteps.Stop();
+            float move = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(move * speed, rb.velocity.y);
 
+            if ((rb.velocity.x != 0) && !isJumping)
+                steps = true;
+            else
+                steps = false;
 
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (!isJumping)
+            if (steps)
             {
-                rb.AddForce(jumpForce * Vector3.up, ForceMode2D.Impulse);
-                SoundManager.instance.PlayClip(jumpSound, this.transform.position);
+                if (!footSteps.isPlaying)
+                    footSteps.Play();
+            }
+            else
+                footSteps.Stop();
+
+
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if (!isJumping)
+                {
+                    rb.AddForce(jumpForce * Vector3.up, ForceMode2D.Impulse);
+                    SoundManager.instance.PlayClip(jumpSound, this.transform.position);
+
+                }
 
             }
 
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
     }
 

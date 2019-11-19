@@ -38,7 +38,6 @@ public class door : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
                 {
                     SceneManager.LoadScene(LevelToLoad);
-
                 }
             }
         }
@@ -53,7 +52,6 @@ public class door : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
                 {
                     SceneManager.LoadScene(LevelToLoad);
-
                 }
             }
         }
