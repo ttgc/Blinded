@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoorToOpen: {fileID: 0}
+  actionClip: {fileID: 8300000, guid: 1a98240c360d0a242b3a5885ee762c76, type: 3}
 --- !u!61 &3663318547831886208
 BoxCollider2D:
   m_ObjectHideFlags: 0

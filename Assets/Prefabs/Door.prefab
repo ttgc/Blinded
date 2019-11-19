@@ -121,3 +121,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelToLoad: 0
   doorOpen: 1
+  openClip: {fileID: 8300000, guid: 56c3087d6e47b8a4c94b8e57ec2f6226, type: 3}

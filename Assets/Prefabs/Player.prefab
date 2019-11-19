@@ -57,7 +57,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -146,4 +145,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 18f1ff003e8fbdb44aba8266f6e1d168, type: 3}
   - {fileID: 8300000, guid: 59cd085e234f32e4daddd2e589174a96, type: 3}
   - {fileID: 8300000, guid: 2f96d3d47551ed848be9307342dcd667, type: 3}
+  deathClip: {fileID: 8300000, guid: dba68ab29ba43364ab6895d1da2311c5, type: 3}
   speed: 4

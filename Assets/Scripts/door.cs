@@ -7,8 +7,27 @@ public class door : MonoBehaviour
 {
     public int LevelToLoad;
     public bool doorOpen = true;
+    public AudioClip openClip;
 
+    private void Start()
+    {
+        LevelToLoad = SceneManager.GetActiveScene().buildIndex;
 
+    }
+
+    public void openingDoor() {
+        if (!doorOpen) {
+            SoundManager.instance.PlayClip(openClip, this.transform.position);
+            doorOpen = true;
+        }
+    }
+
+        public void closingDoor() {
+        if (doorOpen) {
+            doorOpen = false;
+        }
+    }
+ 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (doorOpen)
@@ -19,7 +38,6 @@ public class door : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
                 {
                     SceneManager.LoadScene(LevelToLoad);
-
                 }
             }
         }
@@ -33,9 +51,7 @@ public class door : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
                 {
-                    //SceneManager.LoadScene(LevelToLoad);
-                    SceneManager.LoadScene("SoundManagerSample");
-
+                    SceneManager.LoadScene(LevelToLoad);
                 }
             }
         }
