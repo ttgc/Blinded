@@ -9,3 +9,9 @@ A short plateformer game made with unity. Play without seeing all along the game
 - Added Main character moves and collisions
 - Added Doors
 - Added Switch to open doors
+
+### v0.2.0
+- Added Spikes
+- Added Crates
+- Added Pendulum
+- Added Level 0
