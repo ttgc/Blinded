@@ -67,11 +67,17 @@ public class simpleMovement : MonoBehaviour
             SoundManager.instance.PlayClip(deathClip, this.transform.position);
             die();
         }
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Pikes")) {
+            SoundManager.instance.PlayClip(deathClip, this.transform.position);
+            die();
+        }
+
+        if (col.gameObject.CompareTag("Pendulum")) {
             SoundManager.instance.PlayClip(deathClip, this.transform.position);
             die();
         }
