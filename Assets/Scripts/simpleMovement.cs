@@ -10,6 +10,7 @@ public class simpleMovement : MonoBehaviour
 
     public AudioClip[] audioClips;
     public AudioClip deathClip;
+    public AudioClip fenceClip;
     public AudioClip jumpSound;
     private Rigidbody2D rb;
     public float speed = 1.0f;
@@ -76,6 +77,11 @@ public class simpleMovement : MonoBehaviour
         if (col.gameObject.CompareTag("Pikes")) {
             SoundManager.instance.PlayClip(deathClip, this.transform.position);
             die();
+        }
+
+        if (col.gameObject.CompareTag("Fence"))
+        {
+            SoundManager.instance.PlayClip(fenceClip, this.transform.position);
         }
 
     }
