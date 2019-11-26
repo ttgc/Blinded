@@ -96,7 +96,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
-    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -348,16 +347,6 @@ PrefabInstance:
       propertyPath: actionClip
       value: 
       objectReference: {fileID: 8300000, guid: 354b7dd7f5719ec4380f30e7f1a73c7f, type: 3}
-    - target: {fileID: 3631016797007975373, guid: 554a4c2b56ccf7444af56bdf2fc959a9,
-        type: 3}
-      propertyPath: on
-      value: 
-      objectReference: {fileID: 8300000, guid: 354b7dd7f5719ec4380f30e7f1a73c7f, type: 3}
-    - target: {fileID: 3631016797007975373, guid: 554a4c2b56ccf7444af56bdf2fc959a9,
-        type: 3}
-      propertyPath: off
-      value: 
-      objectReference: {fileID: 8300000, guid: 31f87a6c4e209f84b8423c4aa00891e3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 554a4c2b56ccf7444af56bdf2fc959a9, type: 3}
 --- !u!1001 &3981119401248692093
