@@ -148,6 +148,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 18f1ff003e8fbdb44aba8266f6e1d168, type: 3}
   - {fileID: 8300000, guid: 59cd085e234f32e4daddd2e589174a96, type: 3}
   - {fileID: 8300000, guid: 2f96d3d47551ed848be9307342dcd667, type: 3}
+  hurtClip: {fileID: 8300000, guid: 3d86eb093264c6c429a459ee6dedeec8, type: 3}
   deathClip: {fileID: 8300000, guid: dba68ab29ba43364ab6895d1da2311c5, type: 3}
   jumpSound: {fileID: 8300000, guid: cd691bada4f658841990f4712457da87, type: 3}
   speed: 4

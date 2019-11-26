@@ -9,6 +9,7 @@ public class simpleMovement : MonoBehaviour
     public bool isJumping = false;
 
     public AudioClip[] audioClips;
+    public AudioClip hurtClip;
     public AudioClip deathClip;
     public AudioClip jumpSound;
     private Rigidbody2D rb;
@@ -40,11 +41,13 @@ public class simpleMovement : MonoBehaviour
             {
                 if (!footSteps.isPlaying)
                     footSteps.Play();
-            } else {
+            }
+            else
+            {
                 footSteps.Pause();
                 footSteps.Stop();
             }
-            footSteps.panStereo =  SoundManager.instance.ConvertPosToPan(this.transform.position);
+            footSteps.panStereo = SoundManager.instance.ConvertPosToPan(this.transform.position);
 
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.UpArrow))
             {
@@ -64,36 +67,56 @@ public class simpleMovement : MonoBehaviour
         }
     }
 
-    void die() {
+    void die()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    void OnCollisionEnter2D(Collision2D col) {
-        if (col.gameObject.CompareTag("Ground")) {
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Ground"))
+        {
             SoundManager.instance.PlayRandomClip(audioClips, this.transform.position);
         }
 
-        if (col.gameObject.CompareTag("Pikes")) {
+        if (col.gameObject.CompareTag("Pikes"))
+        {
             SoundManager.instance.PlayClip(deathClip, this.transform.position);
             die();
+        }
+        if (col.gameObject.CompareTag("Bullet"))
+        {
+            SoundManager.instance.PlayClip(deathClip, this.transform.position);
+            die();
+        }
+        if (col.gameObject.CompareTag("Wall"))
+        {
+            SoundManager.instance.PlayClip(hurtClip, this.transform.position);
         }
 
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Pikes")) {
+        if (col.gameObject.CompareTag("Pikes"))
+        {
             SoundManager.instance.PlayClip(deathClip, this.transform.position);
             die();
         }
 
-        if (col.gameObject.CompareTag("Pendulum")) {
+        if (col.gameObject.CompareTag("Pendulum"))
+        {
+            SoundManager.instance.PlayClip(deathClip, this.transform.position);
+            die();
+        }
+        if (col.gameObject.CompareTag("Bullet"))
+        {
             SoundManager.instance.PlayClip(deathClip, this.transform.position);
             die();
         }
     }
 
-   
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         var normal = collision.contacts[0].normal;
@@ -101,7 +124,7 @@ public class simpleMovement : MonoBehaviour
         { //if the bottom side hit something 
             isJumping = false;
         }
-        
+
     }
     private void OnCollisionExit2D()
     {
