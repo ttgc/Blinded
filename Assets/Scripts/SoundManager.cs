@@ -8,47 +8,62 @@ public class SoundManager : MonoBehaviour
     public AudioSource efxSource;
     public AudioSource efxSource1;
     public AudioSource efxSource2;
+    public AudioSource efxSource3;
     public AudioSource musicSource;
     public static SoundManager instance = null;
     public float minX = -10.0F;
     public float maxX = 10.0F;
 
 
-    void Awake ()
+    void Awake()
     {
         if (instance == null) instance = this;
-        else if (instance != this) Destroy (gameObject);
-        DontDestroyOnLoad (gameObject);
+        else if (instance != this) Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
-        
+
     }
 
     public void PlayClip(AudioClip clip, Vector3 position)
     {
-        if (!efxSource.isPlaying) {
+        if (!efxSource.isPlaying)
+        {
             efxSource.panStereo = ConvertPosToPan(position);
             efxSource.clip = clip;
-            efxSource.Play ();
-        } else if (!efxSource1.isPlaying) {
+            efxSource.Play();
+        }
+        else if (!efxSource1.isPlaying)
+        {
             efxSource1.panStereo = ConvertPosToPan(position);
             efxSource1.clip = clip;
-            efxSource1.Play ();
-        } else if (!efxSource2.isPlaying) {
+            efxSource1.Play();
+        }
+        else if (!efxSource2.isPlaying)
+        {
             efxSource2.panStereo = ConvertPosToPan(position);
             efxSource2.clip = clip;
-            efxSource2.Play ();
-        } else {
+            efxSource2.Play();
+        }
+        else if (!efxSource3.isPlaying)
+        {
+            efxSource3.panStereo = ConvertPosToPan(position);
+            efxSource3.clip = clip;
+            efxSource3.Play();
+        }
+        else
+        {
             efxSource.panStereo = ConvertPosToPan(position);
             efxSource.clip = clip;
-            efxSource.Play ();
+            efxSource.Play();
         }
     }
 
-    public float ConvertPosToPan(Vector3 pos) {
-        return pos.x/10;
+    public float ConvertPosToPan(Vector3 pos)
+    {
+        return pos.x / 10;
     }
 
     public void PlayRandomClip(AudioClip[] clips, Vector3 position)
@@ -60,6 +75,6 @@ public class SoundManager : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 }
