@@ -44,7 +44,11 @@ public class simpleMovement : MonoBehaviour
                     footSteps.Play();
             }
             else
+            {
+                footSteps.Pause();
                 footSteps.Stop();
+            }
+            footSteps.panStereo = SoundManager.instance.ConvertPosToPan(this.transform.position);
 
 
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.UpArrow))
