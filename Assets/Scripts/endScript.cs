@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class endScript : MonoBehaviour
 {
     private AudioSource scriptSource;
-    private bool finished = false;
 
     public AudioClip finalScript;
 
@@ -19,11 +19,10 @@ public class endScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!finished && !scriptSource.isPlaying)
+        if (!scriptSource.isPlaying)
         {
             Debug.Break();
-            finished = true;
-            // THE END
+            SceneManager.LoadScene(0);
         }
     }
 }
