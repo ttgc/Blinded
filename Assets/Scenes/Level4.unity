@@ -96,7 +96,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
-    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -205,7 +204,7 @@ PrefabInstance:
     - target: {fileID: 8467515984748958505, guid: b4ebcf56b1f382848b1650ab3cafa894,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.67
+      value: 10.5
       objectReference: {fileID: 0}
     - target: {fileID: 8467515984748958505, guid: b4ebcf56b1f382848b1650ab3cafa894,
         type: 3}
@@ -279,7 +278,7 @@ PrefabInstance:
     - target: {fileID: 8467515984748958505, guid: b4ebcf56b1f382848b1650ab3cafa894,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.28
+      value: -10.56
       objectReference: {fileID: 0}
     - target: {fileID: 8467515984748958505, guid: b4ebcf56b1f382848b1650ab3cafa894,
         type: 3}
@@ -345,20 +344,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5065916925353775349, guid: 8b4ace01c6e65264d97042009a978b97,
-        type: 3}
-      propertyPath: doorOpen
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5065916925353775348, guid: 8b4ace01c6e65264d97042009a978b97,
         type: 3}
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 5065916925353775349, guid: 8b4ace01c6e65264d97042009a978b97,
+        type: 3}
+      propertyPath: doorOpen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5065916925353775337, guid: 8b4ace01c6e65264d97042009a978b97,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.317
+      value: 9.2
       objectReference: {fileID: 0}
     - target: {fileID: 5065916925353775337, guid: 8b4ace01c6e65264d97042009a978b97,
         type: 3}
@@ -427,7 +426,7 @@ PrefabInstance:
     - target: {fileID: 7505088568081704621, guid: daab556c43862e34fa0766c1720b502b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.016
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 7505088568081704621, guid: daab556c43862e34fa0766c1720b502b,
         type: 3}
@@ -482,7 +481,7 @@ PrefabInstance:
     - target: {fileID: 7505088568081704621, guid: daab556c43862e34fa0766c1720b502b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 26.842257
+      value: 22.477673
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daab556c43862e34fa0766c1720b502b, type: 3}
@@ -570,12 +569,12 @@ PrefabInstance:
     - target: {fileID: 8540207505675090965, guid: 124d993ced4b8184b8b592b22f551891,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.97
+      value: -9.08
       objectReference: {fileID: 0}
     - target: {fileID: 8540207505675090965, guid: 124d993ced4b8184b8b592b22f551891,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.24
+      value: 6.64
       objectReference: {fileID: 0}
     - target: {fileID: 8540207505675090965, guid: 124d993ced4b8184b8b592b22f551891,
         type: 3}
