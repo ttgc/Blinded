@@ -15,6 +15,7 @@ public class level1Script : MonoBehaviour
     public AudioClip voice_2;
     private bool voice_2_said = false;
     public AudioClip voice_3;
+    private bool voice_3_said = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,11 +31,13 @@ public class level1Script : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !player.disabled) hasReload = true;
 
-
+        
         if (SoundManager.instance.efxSource.isPlaying)
         {
-            SoundManager.instance.PlayRandomClip(randomSounds, new Vector3(0, 0));
-            player.disabled = true;
+            if (randomSounds.Length != 0)
+            {
+                SoundManager.instance.PlayRandomClip(randomSounds, new Vector3(0, 0));
+            }
         }
         else
         {
@@ -43,9 +46,10 @@ public class level1Script : MonoBehaviour
 
 
 
-        if ((player.GetComponent<Transform>().position.x == 3 || player.GetComponent<Transform>().position.x == -2.5) && voice_1_said && !voice_2_said)
+        if (((3 < player.GetComponent<Transform>().position.x && player.GetComponent<Transform>().position.x < 4.5) || (-3.5< player.GetComponent<Transform>().position.x && player.GetComponent<Transform>().position.x < -2.5)) && voice_1_said && !voice_2_said)
         {
-            //player.disabled = true;
+            player.disabled = true;
+            player.footSteps.Pause();
             SoundManager.instance.PlayClip(voice_2, new Vector3(0, 0));
             voice_2_said = true;
         }
@@ -55,13 +59,16 @@ public class level1Script : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Door") && !voice_1_said && !GameObject.FindObjectOfType<door>().doorOpen)
         {
+            player.disabled = true;
+            player.footSteps.Pause();
             SoundManager.instance.PlayClip(voice_1, new Vector3(0, 0));
             voice_1_said = true;
         }
 
-        if (collision.gameObject.CompareTag("Switch") && voice_1_said)
+        if (collision.gameObject.CompareTag("Switch") && voice_1_said && !voice_3_said)
         {
             SoundManager.instance.PlayClip(voice_3, new Vector3(0, 0));
+            voice_3_said = true;
         }
     }
 }

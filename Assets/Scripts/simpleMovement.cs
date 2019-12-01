@@ -14,7 +14,7 @@ public class simpleMovement : MonoBehaviour
     public AudioClip jumpSound;
     private Rigidbody2D rb;
     public float speed = 1.0f;
-    AudioSource footSteps;
+    public AudioSource footSteps;
     bool steps = false;
 
     public bool disabled = false;
@@ -23,7 +23,6 @@ public class simpleMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        footSteps = SoundManager.instance.efxSource1;
     }
 
     void Update()

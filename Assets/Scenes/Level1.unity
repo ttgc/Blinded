@@ -197,6 +197,11 @@ PrefabInstance:
       propertyPath: fenceClip
       value: 
       objectReference: {fileID: 8300000, guid: 16414a750de63174497a5d81494aea62, type: 3}
+    - target: {fileID: 2140470800825629575, guid: 809a795436aaa3b48b8e2051863bc4ef,
+        type: 3}
+      propertyPath: footSteps
+      value: 
+      objectReference: {fileID: 623777027}
     - target: {fileID: 2140470800825629626, guid: 809a795436aaa3b48b8e2051863bc4ef,
         type: 3}
       propertyPath: m_Constraints
