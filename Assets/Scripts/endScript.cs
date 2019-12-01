@@ -21,9 +21,9 @@ public class endScript : MonoBehaviour
     {
         if (!finished && !scriptSource.isPlaying)
         {
+            Debug.Break();
             finished = true;
             // THE END
-            Debug.Break();
         }
     }
 }
