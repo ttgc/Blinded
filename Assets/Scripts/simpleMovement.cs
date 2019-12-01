@@ -9,6 +9,7 @@ public class simpleMovement : MonoBehaviour
     public bool isJumping = false;
 
     public AudioClip[] audioClips;
+    public AudioClip hurtClip;
     public AudioClip deathClip;
     public AudioClip fenceClip;
     public AudioClip jumpSound;
@@ -85,6 +86,20 @@ public class simpleMovement : MonoBehaviour
         if (col.gameObject.CompareTag("Fence"))
         {
             SoundManager.instance.PlayClip(fenceClip, this.transform.position);
+        }
+
+        if (col.gameObject.CompareTag("Wall"))
+        {
+            var normal = col.contacts[0].normal;
+            if (normal.y > 0)
+            { //if the bottom side hit something 
+            SoundManager.instance.PlayRandomClip(audioClips, this.transform.position);
+            }
+            if (normal.x != 0)
+            {
+                SoundManager.instance.PlayClip(hurtClip, this.transform.position);
+
+            }
         }
 
     }
