@@ -130,7 +130,12 @@ PrefabInstance:
     - target: {fileID: 8467515984748958502, guid: b4ebcf56b1f382848b1650ab3cafa894,
         type: 3}
       propertyPath: m_Name
-      value: Wall
+      value: GroundCrate
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467515984748958502, guid: b4ebcf56b1f382848b1650ab3cafa894,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 8467515984748958505, guid: b4ebcf56b1f382848b1650ab3cafa894,
         type: 3}
@@ -566,6 +571,12 @@ PrefabInstance:
       objectReference: {fileID: 266750333}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 554a4c2b56ccf7444af56bdf2fc959a9, type: 3}
+--- !u!82 &373098169 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8134639832743771560, guid: 638f7baeafff2544b9f5d3e689b0a06d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1183421119}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &415510643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -963,11 +974,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8134639832743771560, guid: 638f7baeafff2544b9f5d3e689b0a06d,
+    - target: {fileID: 8134639832743771567, guid: 638f7baeafff2544b9f5d3e689b0a06d,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: voiceSource
+      value: 
+      objectReference: {fileID: 373098169}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 638f7baeafff2544b9f5d3e689b0a06d, type: 3}
 --- !u!1001 &1485779525
@@ -1039,6 +1050,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 809a795436aaa3b48b8e2051863bc4ef, type: 3}
+--- !u!1 &1485779526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2140470800825629629, guid: 809a795436aaa3b48b8e2051863bc4ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 1485779525}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1485779527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485779526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b386cc57022d949b9fe1d935a48def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intro: {fileID: 8300000, guid: 378aaa8d87000ec488122633c786cec9, type: 3}
+  middle: {fileID: 8300000, guid: 39503c383b43bbc4a936ddd89476d451, type: 3}
+  end: {fileID: 8300000, guid: c6124cf605bd3d64d835fc9bf75508e1, type: 3}
 --- !u!1001 &1601389678
 PrefabInstance:
   m_ObjectHideFlags: 0

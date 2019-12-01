@@ -69,7 +69,7 @@ public class simpleMovement : MonoBehaviour
 
     void die()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -77,6 +77,7 @@ public class simpleMovement : MonoBehaviour
         if (col.gameObject.CompareTag("Ground"))
         {
             SoundManager.instance.PlayRandomClip(audioClips, this.transform.position);
+            if (disabled) rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
         if (col.gameObject.CompareTag("Pikes"))
