@@ -285,6 +285,11 @@ PrefabInstance:
       propertyPath: doorOpen
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5065916925353775349, guid: 8b4ace01c6e65264d97042009a978b97,
+        type: 3}
+      propertyPath: LevelToLoad
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5065916925353775337, guid: 8b4ace01c6e65264d97042009a978b97,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -653,6 +658,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505088568081704609, guid: daab556c43862e34fa0766c1720b502b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 7505088568081704621, guid: daab556c43862e34fa0766c1720b502b,
         type: 3}

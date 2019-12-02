@@ -21,10 +21,7 @@ public class SoundManager : MonoBehaviour
         if (instance == null) instance = this;
         else if (instance != this) Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
-    }
 
-    void Start()
-    {
         var sources = GetComponents<AudioSource>();
         efxSource = sources[0];
         efxSource1 = sources[1];
@@ -32,7 +29,10 @@ public class SoundManager : MonoBehaviour
         efxSource3 = sources[3];
         musicSource = sources[4];
         voiceSource = sources[5];
+    }
 
+    void Start()
+    {
         musicSource.loop = true;
         musicSource.clip = ambiant;
         musicSource.Play();
