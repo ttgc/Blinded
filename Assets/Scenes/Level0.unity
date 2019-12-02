@@ -364,6 +364,11 @@ PrefabInstance:
       propertyPath: doorOpen
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5065916925353775349, guid: 8b4ace01c6e65264d97042009a978b97,
+        type: 3}
+      propertyPath: LevelToLoad
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5065916925353775337, guid: 8b4ace01c6e65264d97042009a978b97,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -439,7 +444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e96be7d4869f81418745129bcef4d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ambiant: {fileID: 8300000, guid: 3d81a83abdec69b4ea2fb025f65bb089, type: 3}
   intro_1: {fileID: 8300000, guid: ce4c8a46e5219454fa34b7c9f45e6de2, type: 3}
   randomSounds:
   - {fileID: 8300000, guid: 97aa60d5013e07946a4aee8236e2f75f, type: 3}
