@@ -18,6 +18,13 @@ public class Menu : MonoBehaviour
     public AudioClip voice_loadgame;
     public AudioClip voice_quitgame;
 
+    void Awake()
+    {
+        var sources = GetComponents<AudioSource>();
+        musicSource = sources[0];
+        voiceSource = sources[1];
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,10 +35,6 @@ public class Menu : MonoBehaviour
             gameSaved = (GameSaver)bf.Deserialize(file);
             file.Close();
         }
-
-        var sources = GetComponents<AudioSource>();
-        musicSource = sources[0];
-        voiceSource = sources[1];
 
         musicSource.loop = true;
         musicSource.clip = music;

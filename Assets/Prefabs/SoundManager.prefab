@@ -50,12 +50,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2140470800825629629, guid: 809a795436aaa3b48b8e2051863bc4ef, type: 3}
-  voiceSource: {fileID: 0}
   efxSource: {fileID: 8134639832743771560}
-  efxSource1: {fileID: 9212440225930157085}
-  efxSource2: {fileID: 2197365958494105571}
-  efxSource3: {fileID: 1409477440}
-  musicSource: {fileID: 8134639832743771561}
+  efxSource1: {fileID: 8134639832743771560}
+  efxSource2: {fileID: 8134639832743771560}
+  efxSource3: {fileID: 8134639832743771560}
+  musicSource: {fileID: 8134639832743771560}
+  voiceSource: {fileID: 8134639832743771560}
   ambiant: {fileID: 8300000, guid: 3d81a83abdec69b4ea2fb025f65bb089, type: 3}
   minX: -10
   maxX: 10
