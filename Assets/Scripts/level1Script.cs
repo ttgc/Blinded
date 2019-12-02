@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class level1Script : MonoBehaviour
 {
-    static private bool hasReload = false;
     private simpleMovement player;
-    private bool isCongrats = false;
 
-    public AudioClip ambiant;
+    private AudioSource scriptSource;
     public AudioClip voice_1;
     private bool voice_1_said = false;
     public AudioClip[] randomSounds;
@@ -21,22 +19,16 @@ public class level1Script : MonoBehaviour
     void Start()
     {
         player = GameObject.FindObjectOfType<simpleMovement>();
-        SoundManager.instance.musicSource.loop = true;
-        SoundManager.instance.musicSource.clip = ambiant;
-        SoundManager.instance.musicSource.Play();
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && !player.disabled) hasReload = true;
-
-        
-        if (SoundManager.instance.efxSource.isPlaying)
+    {       
+        if (scriptSource != null && scriptSource.isPlaying)
         {
             if (randomSounds.Length != 0)
             {
-                SoundManager.instance.PlayRandomClip(randomSounds, new Vector3(0, 0));
+                scriptSource = SoundManager.instance.PlayRandomClip(randomSounds, new Vector3(0, 0));
             }
         }
         else
@@ -50,7 +42,7 @@ public class level1Script : MonoBehaviour
         {
             player.disabled = true;
             player.footSteps.Pause();
-            SoundManager.instance.PlayClip(voice_2, new Vector3(0, 0));
+            scriptSource = SoundManager.instance.PlayVoice(voice_2, new Vector3(0, 0));
             voice_2_said = true;
         }
     }
@@ -61,13 +53,13 @@ public class level1Script : MonoBehaviour
         {
             player.disabled = true;
             player.footSteps.Pause();
-            SoundManager.instance.PlayClip(voice_1, new Vector3(0, 0));
+            scriptSource = SoundManager.instance.PlayVoice(voice_1, new Vector3(0, 0));
             voice_1_said = true;
         }
 
         if (collision.gameObject.CompareTag("Switch") && voice_1_said && !voice_3_said)
         {
-            SoundManager.instance.PlayClip(voice_3, new Vector3(0, 0));
+            scriptSource = SoundManager.instance.PlayVoice(voice_3, new Vector3(0, 0));
             voice_3_said = true;
         }
     }

@@ -140,6 +140,11 @@ public class simpleMovement : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Ground") && disabled)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+
         var normal = collision.contacts[0].normal;
         if (normal.y > 0)
         { //if the bottom side hit something 
@@ -147,6 +152,7 @@ public class simpleMovement : MonoBehaviour
         }
 
     }
+
     private void OnCollisionExit2D()
     {
         isJumping = true;
