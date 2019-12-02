@@ -16,11 +16,13 @@ public class simpleMovement : MonoBehaviour
     private Rigidbody2D rb;
     public float speed = 1.0f;
     public AudioSource footSteps;
-    public AudioSource beginLevelAudio;
+    public AudioClip beginLevelSound;
+    private AudioSource beginLevelSource;
 
     bool steps = false;
     private bool againstWall = false;
     public bool disabled = false;
+    public bool levelTransition = false;
 
     // Use this for initialization
     void Start()
@@ -28,22 +30,26 @@ public class simpleMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         if (SceneManager.GetActiveScene().buildIndex != 1)
         {
-            beginLevelAudio.Play();
-            beginLevelAudio.panStereo = SoundManager.instance.ConvertPosToPan(this.transform.position);
+            beginLevelSource = SoundManager.instance.PlayClip(beginLevelSound, GetComponent<Transform>().position);
+            levelTransition = true;
+            StartCoroutine("StartLevel");
         }
+    }
+
+    IEnumerator StartLevel()
+    {
+        yield return new WaitUntil(() => !beginLevelSource.isPlaying);
+        levelTransition = false;
     }
 
     void Update()
     {
-        if (!disabled && !beginLevelAudio.isPlaying)
+        if (!disabled && !levelTransition)
         {
             float move = Input.GetAxis("Horizontal");
             rb.velocity = new Vector2(move * speed, rb.velocity.y);
 
-            if (!againstWall && !isJumping && (rb.velocity.x != 0))
-                steps = true;
-            else
-                steps = false;
+            steps = (!againstWall && !isJumping && (rb.velocity.x != 0));
 
             if (steps)
             {

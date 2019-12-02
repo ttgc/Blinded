@@ -24,8 +24,12 @@ public class Ennemy : MonoBehaviour
 
     void Fire()
     {
-        GameObject bulletInstance = Instantiate(bulletPrefab, transform.position, transform.rotation);
-        SoundManager.instance.PlayRandomClip(audioClips, this.transform.position);
-        Destroy(bulletInstance, 4f);
+        var targetScript = target.GetComponent<simpleMovement>();
+        if (!targetScript.disabled && !targetScript.levelTransition)
+        {
+            GameObject bulletInstance = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            SoundManager.instance.PlayRandomClip(audioClips, this.transform.position);
+            Destroy(bulletInstance, 4f);
+        }
     }
 }
