@@ -33,7 +33,7 @@ public class playerPush : MonoBehaviour
                 box.GetComponent<FixedJoint2D>().enabled = true;
                 box.GetComponent<boxpull>().beingPushed = true;
             }
-            else if (Input.GetKeyUp(KeyCode.Space))
+            else if (Input.GetKeyUp(KeyCode.Space) && box != null)
             {
                 box.GetComponent<FixedJoint2D>().enabled = false;
                 box.GetComponent<boxpull>().beingPushed = false;
