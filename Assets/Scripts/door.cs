@@ -11,7 +11,7 @@ public class door : MonoBehaviour
 
     private void Start()
     {
-        LevelToLoad = SceneManager.GetActiveScene().buildIndex;
+        //LevelToLoad = SceneManager.GetActiveScene().buildIndex;
 
     }
 

@@ -10,6 +10,7 @@ TagManager:
   - Pendulum
   - Wall
   - Box
+  - Bullet
   layers:
   - Default
   - TransparentFX
