@@ -59,6 +59,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -148,7 +149,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 59cd085e234f32e4daddd2e589174a96, type: 3}
   - {fileID: 8300000, guid: 2f96d3d47551ed848be9307342dcd667, type: 3}
   hurtClip: {fileID: 8300000, guid: 3d86eb093264c6c429a459ee6dedeec8, type: 3}
-  deathClip: {fileID: 8300000, guid: dba68ab29ba43364ab6895d1da2311c5, type: 3}
+  deathClip: {fileID: 8300000, guid: 343b2c0d0757a6f4f844c951debe42bb, type: 3}
   fenceClip: {fileID: 8300000, guid: 16414a750de63174497a5d81494aea62, type: 3}
   jumpSound: {fileID: 8300000, guid: cd691bada4f658841990f4712457da87, type: 3}
   speed: 4
