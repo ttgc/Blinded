@@ -45,6 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aef9b89e0c83df449784b732788cf1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: 5db238c1a0534f64a96827918139363e, type: 3}
+  voice_newgame: {fileID: 8300000, guid: 224eca549e30e3f4d9b41e0d45b593a1, type: 3}
+  voice_loadgame: {fileID: 8300000, guid: 41c0dd9ee52ea9d4eb284f15e9dd9bb4, type: 3}
+  voice_quitgame: {fileID: 8300000, guid: 8a25135a1715a5649b5071ba073749d1, type: 3}
 --- !u!82 &7812810609013068665
 AudioSource:
   m_ObjectHideFlags: 0

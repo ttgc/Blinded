@@ -10,7 +10,13 @@ public class Menu : MonoBehaviour
     internal enum Options { NEW = 0, LOAD = 1, QUIT = 2 }
 
     private Options selected = Options.NEW;
-    GameSaver gameSaved = new GameSaver() { level = 1 };
+    private GameSaver gameSaved = new GameSaver() { level = 1 };
+    private AudioSource musicSource;
+    private AudioSource voiceSource;
+    public AudioClip music;
+    public AudioClip voice_newgame;
+    public AudioClip voice_loadgame;
+    public AudioClip voice_quitgame;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +28,22 @@ public class Menu : MonoBehaviour
             gameSaved = (GameSaver)bf.Deserialize(file);
             file.Close();
         }
+
+        var sources = GetComponents<AudioSource>();
+        musicSource = sources[0];
+        voiceSource = sources[1];
+
+        musicSource.loop = true;
+        musicSource.clip = music;
+        musicSource.Play();
+
+        playVoice(voice_newgame);
+    }
+
+    private void playVoice(AudioClip clip)
+    {
+        voiceSource.clip = clip;
+        voiceSource.Play();
     }
 
     // Update is called once per frame
@@ -33,12 +55,15 @@ public class Menu : MonoBehaviour
             {
                 case Options.NEW:
                     selected = Options.LOAD;
+                    playVoice(voice_loadgame);
                     break;
                 case Options.LOAD:
                     selected = Options.QUIT;
+                    playVoice(voice_quitgame);
                     break;
                 case Options.QUIT:
                     selected = Options.NEW;
+                    playVoice(voice_newgame);
                     break;
             }
         }
@@ -48,12 +73,15 @@ public class Menu : MonoBehaviour
             {
                 case Options.NEW:
                     selected = Options.QUIT;
+                    playVoice(voice_quitgame);
                     break;
                 case Options.LOAD:
                     selected = Options.NEW;
+                    playVoice(voice_newgame);
                     break;
                 case Options.QUIT:
                     selected = Options.LOAD;
+                    playVoice(voice_loadgame);
                     break;
             }
         }
