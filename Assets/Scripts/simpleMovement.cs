@@ -16,6 +16,8 @@ public class simpleMovement : MonoBehaviour
     private Rigidbody2D rb;
     public float speed = 1.0f;
     public AudioSource footSteps;
+    public AudioSource beginLevelAudio;
+
     bool steps = false;
     private bool againstWall = false;
     public bool disabled = false;
@@ -24,16 +26,21 @@ public class simpleMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        if (SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            beginLevelAudio.Play();
+            beginLevelAudio.panStereo = SoundManager.instance.ConvertPosToPan(this.transform.position);
+        }
     }
 
     void Update()
     {
-        if (!disabled)
+        if (!disabled && !beginLevelAudio.isPlaying)
         {
             float move = Input.GetAxis("Horizontal");
             rb.velocity = new Vector2(move * speed, rb.velocity.y);
 
-            if (!againstWall && !isJumping)
+            if (!againstWall && !isJumping && (rb.velocity.x != 0))
                 steps = true;
             else
                 steps = false;

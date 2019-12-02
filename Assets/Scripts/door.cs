@@ -10,6 +10,8 @@ public class door : MonoBehaviour
     public int LevelToLoad;
     public bool doorOpen = true;
     public AudioClip openClip;
+    public AudioSource endLevelAudio;
+
 
     private void Start()
     {
@@ -50,11 +52,24 @@ public class door : MonoBehaviour
 
             if (collision.gameObject.CompareTag("Player"))
             {
-                saveGame();
-                SceneManager.LoadScene(LevelToLoad);
+                endLevelAudio.Play();
+                endLevelAudio.panStereo = SoundManager.instance.ConvertPosToPan(this.transform.position);
+                StartCoroutine("EndLevel");
+                /*saveGame();
+                SceneManager.LoadScene(LevelToLoad);*/
+
             }
         }
     }
+
+
+    IEnumerator EndLevel()
+    {
+        yield return new WaitUntil(() => endLevelAudio.isPlaying == false);
+        saveGame();
+        SceneManager.LoadScene(LevelToLoad);
+    }
+
 }
 
 
