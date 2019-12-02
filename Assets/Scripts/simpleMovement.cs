@@ -162,15 +162,13 @@ public class simpleMovement : MonoBehaviour
     }
 
     private void OnCollisionExit2D(Collision2D collision) {
+        isJumping = true;
+
         if (collision.gameObject.CompareTag("Wall"))
         {
             againstWall = false;
         }
-    }
 
-    private void OnCollisionExit2D()
-    {
-        isJumping = true;
     }
 
 
