@@ -91,10 +91,6 @@ public class simpleMovement : MonoBehaviour
             SoundManager.instance.PlayClip(deathClip, this.transform.position);
             die();
         }
-        if (col.gameObject.CompareTag("Wall"))
-        {
-            SoundManager.instance.PlayClip(hurtClip, this.transform.position);
-        }
 
         if (col.gameObject.CompareTag("Fence"))
         {
