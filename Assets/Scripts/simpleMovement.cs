@@ -17,7 +17,7 @@ public class simpleMovement : MonoBehaviour
     public float speed = 1.0f;
     public AudioSource footSteps;
     bool steps = false;
-
+    private bool againstWall = false;
     public bool disabled = false;
 
     // Use this for initialization
@@ -33,7 +33,7 @@ public class simpleMovement : MonoBehaviour
             float move = Input.GetAxis("Horizontal");
             rb.velocity = new Vector2(move * speed, rb.velocity.y);
 
-            if ((rb.velocity.x != 0) && !isJumping)
+            if (!againstWall && !isJumping)
                 steps = true;
             else
                 steps = false;
@@ -147,6 +147,18 @@ public class simpleMovement : MonoBehaviour
             isJumping = false;
         }
 
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            againstWall = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            againstWall = false;
+        }
     }
 
     private void OnCollisionExit2D()
