@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,6 +29,15 @@ public class door : MonoBehaviour
             doorOpen = false;
         }
     }
+
+    private void saveGame()
+    {
+        GameSaver saver = new GameSaver() { level = LevelToLoad };
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/" + GameSaver.filename);
+        bf.Serialize(file, saver);
+        file.Close();
+    }
  
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -37,6 +48,7 @@ public class door : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
                 {
+                    saveGame();
                     SceneManager.LoadScene(LevelToLoad);
                 }
             }
@@ -51,6 +63,7 @@ public class door : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
                 {
+                    saveGame();
                     SceneManager.LoadScene(LevelToLoad);
                 }
             }
