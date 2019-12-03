@@ -17,7 +17,7 @@ public class playerPush : MonoBehaviour
         RaycastHit2D hit2 = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, distance);
         //Forced to create 2 because as we have no animation, the player never really turn back
         
-        if (!GetComponent<simpleMovement>().isJumping)
+        if (!GetComponent<simpleMovement>().isJumping && !GetComponent<simpleMovement>().disabled)
         {
             if (hit1.collider != null && hit1.collider.gameObject.tag == "Box" && Input.GetKeyDown(KeyCode.Space))
             {
@@ -33,7 +33,7 @@ public class playerPush : MonoBehaviour
                 box.GetComponent<FixedJoint2D>().enabled = true;
                 box.GetComponent<boxpull>().beingPushed = true;
             }
-            else if (Input.GetKeyUp(KeyCode.Space))
+            else if (Input.GetKeyUp(KeyCode.Space) && box != null)
             {
                 box.GetComponent<FixedJoint2D>().enabled = false;
                 box.GetComponent<boxpull>().beingPushed = false;

@@ -282,13 +282,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5065916925353775349, guid: 8b4ace01c6e65264d97042009a978b97,
         type: 3}
-      propertyPath: doorOpen
-      value: 0
+      propertyPath: LevelToLoad
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5065916925353775349, guid: 8b4ace01c6e65264d97042009a978b97,
         type: 3}
-      propertyPath: LevelToLoad
-      value: 3
+      propertyPath: doorOpen
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5065916925353775337, guid: 8b4ace01c6e65264d97042009a978b97,
         type: 3}

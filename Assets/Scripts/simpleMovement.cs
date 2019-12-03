@@ -16,27 +16,40 @@ public class simpleMovement : MonoBehaviour
     private Rigidbody2D rb;
     public float speed = 1.0f;
     public AudioSource footSteps;
-    bool steps = false;
+    public AudioClip beginLevelSound;
+    private AudioSource beginLevelSource;
 
+    bool steps = false;
+    private bool againstWall = false;
     public bool disabled = false;
+    public bool levelTransition = false;
 
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        if (SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            beginLevelSource = SoundManager.instance.PlayClip(beginLevelSound, GetComponent<Transform>().position);
+            levelTransition = true;
+            StartCoroutine("StartLevel");
+        }
+    }
+
+    IEnumerator StartLevel()
+    {
+        yield return new WaitUntil(() => !beginLevelSource.isPlaying);
+        levelTransition = false;
     }
 
     void Update()
     {
-        if (!disabled)
+        if (!disabled && !levelTransition)
         {
             float move = Input.GetAxis("Horizontal");
             rb.velocity = new Vector2(move * speed, rb.velocity.y);
 
-            if ((rb.velocity.x != 0) && !isJumping)
-                steps = true;
-            else
-                steps = false;
+            steps = (!againstWall && !isJumping && (rb.velocity.x != 0));
 
             if (steps)
             {
@@ -147,11 +160,21 @@ public class simpleMovement : MonoBehaviour
             isJumping = false;
         }
 
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            againstWall = true;
+        }
     }
 
-    private void OnCollisionExit2D()
-    {
+    private void OnCollisionExit2D(Collision2D collision) {
         isJumping = true;
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            againstWall = false;
+        }
+
     }
 
 
