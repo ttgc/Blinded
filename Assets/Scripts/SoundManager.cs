@@ -5,61 +5,100 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public GameObject player;
-    public AudioSource efxSource;
-    public AudioSource efxSource1;
-    public AudioSource efxSource2;
-    public AudioSource musicSource;
+    private AudioSource efxSource;
+    private AudioSource efxSource1;
+    private AudioSource efxSource2;
+    private AudioSource efxSource3;
+    private AudioSource musicSource;
+    private AudioSource voiceSource;
+    public AudioClip ambiant;
     public static SoundManager instance = null;
     public float minX = -10.0F;
     public float maxX = 10.0F;
 
-
-    void Awake ()
+    void Awake()
     {
         if (instance == null) instance = this;
-        else if (instance != this) Destroy (gameObject);
-        DontDestroyOnLoad (gameObject);
+        else if (instance != this) Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
+
+        var sources = GetComponents<AudioSource>();
+        efxSource = sources[0];
+        efxSource1 = sources[1];
+        efxSource2 = sources[2];
+        efxSource3 = sources[3];
+        musicSource = sources[4];
+        voiceSource = sources[5];
     }
 
     void Start()
     {
-        
+        musicSource.loop = true;
+        musicSource.clip = ambiant;
+        musicSource.Play();
     }
 
-    public void PlayClip(AudioClip clip, Vector3 position)
+    public AudioSource PlayVoice(AudioClip voiceClip, Vector3 position)
     {
-        if (!efxSource.isPlaying) {
+        voiceSource.panStereo = ConvertPosToPan(position);
+        voiceSource.clip = voiceClip;
+        voiceSource.Play();
+        return voiceSource;
+    }
+
+    public AudioSource PlayClip(AudioClip clip, Vector3 position)
+    {
+        if (!efxSource.isPlaying)
+        {
             efxSource.panStereo = ConvertPosToPan(position);
             efxSource.clip = clip;
-            efxSource.Play ();
-        } else if (!efxSource1.isPlaying) {
+            efxSource.Play();
+            return efxSource;
+        }
+        else if (!efxSource1.isPlaying)
+        {
             efxSource1.panStereo = ConvertPosToPan(position);
             efxSource1.clip = clip;
-            efxSource1.Play ();
-        } else if (!efxSource2.isPlaying) {
+            efxSource1.Play();
+            return efxSource1;
+        }
+        else if (!efxSource2.isPlaying)
+        {
             efxSource2.panStereo = ConvertPosToPan(position);
             efxSource2.clip = clip;
-            efxSource2.Play ();
-        } else {
+            efxSource2.Play();
+            return efxSource2;
+        }
+        else if (!efxSource3.isPlaying)
+        {
+            efxSource3.panStereo = ConvertPosToPan(position);
+            efxSource3.clip = clip;
+            efxSource3.Play();
+            return efxSource3;
+        }
+        else
+        {
             efxSource.panStereo = ConvertPosToPan(position);
             efxSource.clip = clip;
-            efxSource.Play ();
+            efxSource.Play();
+            return efxSource;
         }
     }
 
-    public float ConvertPosToPan(Vector3 pos) {
-        return pos.x/10;
+    public float ConvertPosToPan(Vector3 pos)
+    {
+        return pos.x / 10;
     }
 
-    public void PlayRandomClip(AudioClip[] clips, Vector3 position)
+    public AudioSource PlayRandomClip(AudioClip[] clips, Vector3 position)
     {
         int randomIndex = Random.Range(0, clips.Length);
-        this.PlayClip(clips[randomIndex], position);
+        return this.PlayClip(clips[randomIndex], position);
     }
 
 
     void Update()
     {
-        
+
     }
 }

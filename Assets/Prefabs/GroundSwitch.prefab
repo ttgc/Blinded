@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,4 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoorToOpen: {fileID: 0}
-  actionClip: {fileID: 0}
+  on: {fileID: 8300000, guid: 354b7dd7f5719ec4380f30e7f1a73c7f, type: 3}
+  off: {fileID: 8300000, guid: 31f87a6c4e209f84b8423c4aa00891e3, type: 3}

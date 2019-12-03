@@ -15,3 +15,12 @@ A short plateformer game made with unity. Play without seeing all along the game
 - Added Crates
 - Added Pendulum
 - Added Level 0
+
+### v1.0.0
+- Added rotating axe
+- Fixed player steps sound
+- Added moving walls
+- Added enemies
+- Added Level 1 to 5
+- Added ending scene
+- Added Main menu

@@ -11,8 +11,8 @@ public class tutoScript : MonoBehaviour
     private int stepIntro = 0;
     private bool isFalling = false;
     private bool isCongrats = false;
+    private AudioSource scriptSource;
 
-    public AudioClip ambiant;
     public AudioClip intro_1;
     public AudioClip[] randomSounds;
     public AudioClip intro_2;
@@ -24,13 +24,10 @@ public class tutoScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindObjectOfType<simpleMovement>();
-        SoundManager.instance.musicSource.loop = true;
-        SoundManager.instance.musicSource.clip = ambiant;
-        SoundManager.instance.musicSource.Play();
 
         if (!hasReload)
         {
-            SoundManager.instance.PlayClip(intro_1, new Vector3(0, 0));
+            scriptSource = SoundManager.instance.PlayVoice(intro_1, new Vector3(0, 0));
             stepIntro++;
         }
         else
@@ -45,17 +42,17 @@ public class tutoScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !player.disabled) hasReload = true;
 
-        if (stepIntro == 1 && !SoundManager.instance.efxSource.isPlaying)
+        if (stepIntro == 1 && !scriptSource.isPlaying)
         {
-            SoundManager.instance.PlayRandomClip(randomSounds, new Vector3(0, 0));
+            scriptSource = SoundManager.instance.PlayRandomClip(randomSounds, new Vector3(0, 0));
             stepIntro++;
         }
-        if (stepIntro == 2 && !SoundManager.instance.efxSource.isPlaying)
+        if (stepIntro == 2 && !scriptSource.isPlaying)
         {
-            SoundManager.instance.PlayClip(intro_2, new Vector3(0, 0));
+            scriptSource = SoundManager.instance.PlayVoice(intro_2, new Vector3(0, 0));
             stepIntro++;
         }
-        if (stepIntro == 3 && !SoundManager.instance.efxSource.isPlaying)
+        if (stepIntro == 3 && !scriptSource.isPlaying)
         {
             player.disabled = false;
             stepIntro++;
@@ -68,15 +65,15 @@ public class tutoScript : MonoBehaviour
             hasFallen = true;
             if (!hasReload)
             {
-                SoundManager.instance.PlayClip(fall, new Vector3(0, 0));
+                scriptSource = SoundManager.instance.PlayVoice(fall, new Vector3(0, 0));
             }
             else
             {
-                SoundManager.instance.PlayClip(fallAgain, new Vector3(0, 0));
+                scriptSource = SoundManager.instance.PlayVoice(fallAgain, new Vector3(0, 0));
             }
         }
 
-        if (isFalling && !SoundManager.instance.efxSource.isPlaying)
+        if (isFalling && !scriptSource.isPlaying)
         {
             player.disabled = false;
             isFalling = false;
@@ -87,10 +84,10 @@ public class tutoScript : MonoBehaviour
             player.disabled = true;
             isCongrats = true;
             hasFinished = true;
-            SoundManager.instance.PlayClip(congrats, new Vector3(0, 0));
+            scriptSource = SoundManager.instance.PlayVoice(congrats, new Vector3(0, 0));
         }
 
-        if (isCongrats && !SoundManager.instance.efxSource.isPlaying)
+        if (isCongrats && !scriptSource.isPlaying)
         {
             player.disabled = false;
             isCongrats = false;

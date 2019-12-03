@@ -56,7 +56,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -122,3 +121,4 @@ MonoBehaviour:
   LevelToLoad: 0
   doorOpen: 1
   openClip: {fileID: 8300000, guid: 56c3087d6e47b8a4c94b8e57ec2f6226, type: 3}
+  endLevelAudio: {fileID: 8300000, guid: 30815180047ac844db4500146504d386, type: 3}
